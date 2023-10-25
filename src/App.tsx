@@ -8,14 +8,20 @@ import { Gender, NAME_PART } from "./constants/boundaries";
 import touchBodyPart from "./constants/touchBodyPart";
 import "./index.css";
 
-const Scene = ({ gender, autoRotation }: { gender: Gender; autoRotation: boolean }) => {
+const Scene = ({
+  gender,
+  autoRotation,
+}: {
+  gender: Gender;
+  autoRotation: boolean;
+}) => {
   const ref = useRef<any>();
   const obj = useLoader(OBJLoader, "FinalBaseMesh.obj");
   const obj2 = useLoader(FBXLoader, "FemaleBodyModal.fbx");
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame(() => {
-    if(!autoRotation) return;
-    ref.current.rotation.y += 0.002
+    if (!autoRotation) return;
+    ref.current.rotation.y += 0.002;
   });
 
   // Here, we can access the camera via the useThree hook
@@ -34,7 +40,7 @@ const Scene = ({ gender, autoRotation }: { gender: Gender; autoRotation: boolean
 
   useLayoutEffect(() => {
     object.traverse((child: any) => {
-      if (child.isMesh) child.material.color.set("red");
+      if (child.isMesh) child.material.color.set("#FFE6DE");
     });
   }, [object]);
 
@@ -47,7 +53,7 @@ const Scene = ({ gender, autoRotation }: { gender: Gender; autoRotation: boolean
       onClick={(e: any) => {
         const part = touchBodyPart(e.point, gender);
         console.log(e.point, part);
-        if(!part) return;
+        if (!part) return;
         if ((window as any).ReactNativeWebView) {
           (window as any).ReactNativeWebView?.postMessage(
             JSON.stringify({ part })
@@ -64,8 +70,17 @@ function App() {
   const orbitRef = useRef<any>();
   const [gender, setGender] = useState<Gender>("male");
   const [autoRotation, setAutoRotation] = useState(false);
+  const timeout = useRef<any>();
   useEffect(() => {
-    orbitRef?.current?.reset();
+    window.addEventListener('resize', () => {
+      if(timeout.current) clearTimeout(timeout.current);
+      timeout.current = setTimeout(() => {
+        orbitRef?.current?.reset();
+      }, 100);
+    })
+    setTimeout(() => {
+      orbitRef?.current?.reset();
+    }, 100);
     const qs = new URLSearchParams(window.location.search);
     if (qs && qs.get("gender")) {
       setGender(qs.get("gender") as Gender);
@@ -78,7 +93,7 @@ function App() {
       <Canvas className="canvas3d" gl={{ useLegacyLights: true }}>
         <Suspense fallback={null}>
           <ambientLight castShadow intensity={1} />
-          <directionalLight castShadow position={[0, 20, 10]} intensity={2} />
+          <directionalLight castShadow position={[0, 20, 8]} intensity={3} />
           <Scene gender={gender} autoRotation={autoRotation} />
           <OrbitControls
             ref={orbitRef}
