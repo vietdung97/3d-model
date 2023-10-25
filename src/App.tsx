@@ -4,7 +4,7 @@ import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import "./App.css";
-import { Gender } from "./constants/boundaries";
+import { Gender, NAME_PART } from "./constants/boundaries";
 import touchBodyPart from "./constants/touchBodyPart";
 import "./index.css";
 
@@ -46,12 +46,15 @@ const Scene = ({ gender, autoRotation }: { gender: Gender; autoRotation: boolean
       position={position}
       onClick={(e: any) => {
         const part = touchBodyPart(e.point, gender);
+        console.log(e.point, part);
+        if(!part) return;
         if ((window as any).ReactNativeWebView) {
           (window as any).ReactNativeWebView?.postMessage(
             JSON.stringify({ part })
           );
+        } else {
+          alert(`Touches the body part: ${NAME_PART[part]}`);
         }
-        console.log(e.point, part);
       }}
     />
   );

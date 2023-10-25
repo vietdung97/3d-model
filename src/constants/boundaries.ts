@@ -22,6 +22,21 @@ type BodyBoundaries = {
     };
 };
 
+export const NAME_PART: {[key in BodyPart]: string} = {
+    neck: "Neck",
+    back: "Back",
+    leftShoulder: "Shoulders",
+    rightShoulder: "Shoulders",
+    leftFoot: "Feet",
+    rightFoot: "Feet",
+    leftWrist: "Wrists",
+    rightWrist: "Wrists",
+    leftHip: "Hips",
+    rightHip: "Hips",
+    leftKnee: "Knees",
+    rightKnee: "Knees",
+};
+
 export const BODY_BOUNDARIES: BodyBoundaries = {
     male: {
         neck: {
