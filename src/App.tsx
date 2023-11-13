@@ -3,6 +3,7 @@ import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import "./App.css";
 import { Gender, NAME_PART } from "./constants/boundaries";
 import touchBodyPart from "./constants/touchBodyPart";
@@ -16,8 +17,8 @@ const Scene = ({
   autoRotation: boolean;
 }) => {
   const ref = useRef<any>();
-  const obj = useLoader(OBJLoader, "FinalBaseMesh.obj");
-  const obj2 = useLoader(FBXLoader, "FemaleBodyModal.fbx");
+  const obj = useLoader(GLTFLoader, "male.glb");
+  const obj2 = useLoader(GLTFLoader, "female.glb");
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame(() => {
     if (!autoRotation) return;
@@ -38,17 +39,17 @@ const Scene = ({
   const object = gender === "male" ? obj : obj2;
   const position = gender === "male" ? [0, -10, 0] : [0, -60, 0];
 
-  useLayoutEffect(() => {
-    object.traverse((child: any) => {
-      if (child.isMesh) child.material.color.set("#FFE6DE");
-    });
-  }, [object]);
+  // useLayoutEffect(() => {
+  //   object.traverse((child: any) => {
+  //     if (child.isMesh) child.material.color.set("#FFE6DE");
+  //   });
+  // }, [object]);
 
   return (
     <primitive
       ref={ref}
-      object={object}
-      scale={1}
+      object={object.scene}
+      scale={gender === "male" ? 1: 6}
       position={position}
       onClick={(e: any) => {
         const part = touchBodyPart(e.point, gender);
