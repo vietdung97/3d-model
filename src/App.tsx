@@ -3,7 +3,7 @@ import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import "./App.css";
 import { Gender, NAME_PART } from "./constants/boundaries";
 import touchBodyPart from "./constants/touchBodyPart";
@@ -49,11 +49,11 @@ const Scene = ({
     <primitive
       ref={ref}
       object={object.scene}
-      scale={gender === "male" ? 1: 6}
+      scale={gender === "male" ? 1 : 6}
       position={position}
       onClick={(e: any) => {
         const part = touchBodyPart(e.point, gender);
-        console.log(e.point, part);
+        console.log(e.point.x + " " + e.point.y + " " + e.point.z);
         if (!part) return;
         if ((window as any).ReactNativeWebView) {
           (window as any).ReactNativeWebView?.postMessage(
@@ -73,12 +73,12 @@ function App() {
   const [autoRotation, setAutoRotation] = useState(false);
   const timeout = useRef<any>();
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      if(timeout.current) clearTimeout(timeout.current);
+    window.addEventListener("resize", () => {
+      if (timeout.current) clearTimeout(timeout.current);
       timeout.current = setTimeout(() => {
         orbitRef?.current?.reset();
       }, 100);
-    })
+    });
     setTimeout(() => {
       orbitRef?.current?.reset();
     }, 100);
