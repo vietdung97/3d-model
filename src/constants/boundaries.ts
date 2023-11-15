@@ -332,7 +332,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       z: {
         start: -8,
-        end: 6.5,
+        end: 8,
       },
     },
     leftHip: {
@@ -346,7 +346,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       z: {
         start: -8,
-        end: 6.5,
+        end: 8,
       },
     },
     rightKnee: {
