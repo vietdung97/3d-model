@@ -54,44 +54,44 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
     },
     back: {
       x: {
-        start: 0,
-        end: 1.5,
+        start: -1.9,
+        end: 1.9,
       },
       y: {
-        start: 2,
-        end: 6.7,
+        start: 2.4,
+        end: 5.8,
       },
       z: {
-        start: -2,
-        end: -0.6,
+        start: -1.9,
+        end: -0.7,
       },
     },
     rightShoulder: {
       x: {
-        start: -3.1,
-        end: 2,
+        start: -3,
+        end: 3,
       },
       y: {
-        start: 5.3,
-        end: 7.5,
+        start: 5.8,
+        end: 7,
       },
       z: {
-        start: -1.7,
-        end: 1,
+        start: -1.9,
+        end: 0,
       },
     },
     leftShoulder: {
       x: {
-        start: -2,
-        end: 3.1,
+        start: -3,
+        end: 3,
       },
       y: {
-        start: 5.3,
-        end: 7.5,
+        start: 5.8,
+        end: 7,
       },
       z: {
-        start: -1.7,
-        end: 1,
+        start: -1.9,
+        end: 0,
       },
     },
     rightFoot: {
@@ -157,7 +157,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       y: {
         start: 0.3,
-        end: 2.9,
+        end: 2.4,
       },
       z: {
         start: -1.6,
@@ -171,7 +171,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       y: {
         start: 0.3,
-        end: 2.9,
+        end: 2.4,
       },
       z: {
         start: -1.6,
@@ -224,44 +224,44 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
     },
     back: {
       x: {
-        start: -10,
-        end: 10,
+        start: -8,
+        end: 8,
       },
       y: {
-        start: 13,
-        end: 40,
+        start: 14.5,
+        end: 32,
       },
       z: {
-        start: -10,
-        end: -0.7,
+        start: -8,
+        end: -2.9,
       },
     },
     rightShoulder: {
       x: {
-        start: -16,
-        end: 0,
+        start: -13.8,
+        end: 13.8,
       },
       y: {
-        start: 33,
-        end: 39,
+        start: 32,
+        end: 40.6,
       },
       z: {
-        start: -7,
-        end: 6,
+        start: -8.3,
+        end: 4.8,
       },
     },
     leftShoulder: {
       x: {
-        start: 0,
-        end: 16,
+        start: -13.8,
+        end: 13.8,
       },
       y: {
-        start: 33,
-        end: 39,
+        start: 32,
+        end: 40.6,
       },
       z: {
-        start: -7,
-        end: 6,
+        start: -8.3,
+        end: 4.8,
       },
     },
     rightFoot: {
@@ -292,7 +292,6 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
         end: 9,
       },
     },
-
     rightWrist: {
       x: {
         start: -35,
