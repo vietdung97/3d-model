@@ -84,7 +84,11 @@ function App() {
       orbitRef?.current?.reset();
     }, 100);
     const qs = new URLSearchParams(window.location.search);
-    if (qs && qs.get("gender")) {
+    if (
+      qs &&
+      qs.get("gender") &&
+      (qs.get("gender") === "male" || qs.get("gender") === "female")
+    ) {
       setGender(qs.get("gender") as Gender);
     }
     setAutoRotation(qs.get("autoRotation") === "true");
