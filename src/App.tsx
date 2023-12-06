@@ -51,9 +51,10 @@ const Scene = ({
       object={object.scene}
       scale={gender === "male" ? 1 : 6}
       position={position}
+      dispose={null}
       onClick={(e: any) => {
         const part = touchBodyPart(e.point, gender);
-        console.log(e.point.x + " " + e.point.y + " " + e.point.z);
+        console.log(e.point.x + " " + e.point.y + " " + e.point.z, " " + part);
         if (!part) return;
         if ((window as any).ReactNativeWebView) {
           (window as any).ReactNativeWebView?.postMessage(

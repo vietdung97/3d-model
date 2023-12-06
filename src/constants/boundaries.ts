@@ -77,7 +77,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       z: {
         start: -1.9,
-        end: 0,
+        end: 1,
       },
     },
     leftShoulder: {
@@ -91,7 +91,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       z: {
         start: -1.9,
-        end: 0,
+        end: 1,
       },
     },
     rightFoot: {
@@ -247,7 +247,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       z: {
         start: -8.3,
-        end: 4.8,
+        end: 5,
       },
     },
     leftShoulder: {
@@ -261,7 +261,7 @@ export const BODY_BOUNDARIES: BodyBoundaries = {
       },
       z: {
         start: -8.3,
-        end: 4.8,
+        end: 5,
       },
     },
     rightFoot: {
